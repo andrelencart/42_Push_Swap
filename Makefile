@@ -6,7 +6,7 @@
 #    By: andcarva <andcarva@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/09 20:52:46 by andcarva          #+#    #+#              #
-#    Updated: 2024/12/10 19:42:19 by andcarva         ###   ########.fr        #
+#    Updated: 2024/12/11 18:11:17 by andcarva         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,8 +15,9 @@ CC=cc
 CFLAGS=-Wall -Wextra -Werror
 OBJ_DIR=Obj
 OBJ= $(addprefix $(OBJ_DIR)/, $(SRC:.c=.o))
-SRC= push_swap.c push_swap_utils.c push_stack.c ft_ptf_hexfunc.c \
-		ft_ptf_decfunc.c ft_printf.c \
+SRC= push_swap.c push_swap_utils.c push_lst_functions.c push_rules.c \
+		push_stack.c ft_ptf_decfunc.c ft_printf.c ft_ptf_hexfunc.c \
+		
 
 all: $(NAME)
 

@@ -6,7 +6,7 @@
 /*   By: andcarva <andcarva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 17:52:31 by andcarva          #+#    #+#             */
-/*   Updated: 2024/12/10 18:29:12 by andcarva         ###   ########.fr       */
+/*   Updated: 2024/12/11 19:19:52 by andcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 # include <unistd.h>
 # include <stdlib.h>
-# include <stdio.h>
 # include <stdio.h>
 # include <stdint.h>
 
@@ -26,7 +25,8 @@ typedef struct s_node
 	struct s_node	*prev;
 }	t_node;
 
-typedef struct s_stack //rotate head -> tail | tail -> head
+//rotate head -> tail | tail -> head
+typedef struct s_stack
 {
 	int		size;
 	t_node	*head;
@@ -34,9 +34,14 @@ typedef struct s_stack //rotate head -> tail | tail -> head
 }	t_stack;
 
 //Push_Swap
-int	ft_atoi(char **str);
-int is_Wspace(char *str);
-int is_number(char *str);
+int		ft_atoi(char **str);
+int		is_wspace(char *str);
+int		is_number(char *str);
+t_node	*lstnew_node(int cont);
+void	lstadd_back(t_node **lst, t_node *new_node);
+int		lstsize(t_node *lst);
+void	add_node_stack(t_stack *stack, t_node *node);
+t_stack	*make_stack(int ac, char **av);
 
 //Printf
 # define HEX_LB "0123456789abcdef"
