@@ -6,7 +6,7 @@
 /*   By: andcarva <andcarva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 16:09:24 by andcarva          #+#    #+#             */
-/*   Updated: 2024/12/12 16:38:11 by andcarva         ###   ########.fr       */
+/*   Updated: 2024/12/12 19:04:11 by andcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ static char	*get_word(char const *s, char c)
 	return (new_word);
 }
 
-char	**ft_split(char const *s, char c)
+char	**ft_split(char *s, char c)
 {
 	char	**split;
 	size_t	i;

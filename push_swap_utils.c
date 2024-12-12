@@ -6,7 +6,7 @@
 /*   By: andcarva <andcarva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 20:06:19 by andcarva          #+#    #+#             */
-/*   Updated: 2024/12/12 16:07:43 by andcarva         ###   ########.fr       */
+/*   Updated: 2024/12/12 19:16:36 by andcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,24 +16,20 @@ int	ft_atoi(char *str)
 {
 	int	sign;
 	int	result;
-	static int	i;
 
-	i = 0;
 	sign = 1;
 	result = 0;
-	while (str[i] != '\0' && is_wspace(str))
-		i++;
-	if (str[i] == '-')
+	while (*str != '\0' && is_wspace(str))
+		str++;
+	if (*str == '-')
 	{
 		sign *= -1;
-		i++;
+		str++;
 	}
-	if (!(str[i] != '\0' && is_number(str)))
-		str[i] = 'e';
-	while (str[i] != '\0' && is_number(str))
+	while (*str != '\0' && is_number(str))
 	{
-		result = result * 10 + (str[i] - '0');
-		i++;
+		result = result * 10 + (*str - '0');
+		str++;
 	}
 	return (result * sign);
 }
@@ -47,7 +43,7 @@ int	is_wspace(char *str)
 
 int	is_number(char *str)
 {
-	if ((*str >= '0' && *str <= '9'))
+	if (*str >= '0' && *str <= '9')
 		return (1);
 	return (0);
 }

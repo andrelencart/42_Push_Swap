@@ -6,7 +6,7 @@
 /*   By: andcarva <andcarva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 17:52:31 by andcarva          #+#    #+#             */
-/*   Updated: 2024/12/12 16:43:35 by andcarva         ###   ########.fr       */
+/*   Updated: 2024/12/12 18:54:52 by andcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ typedef struct s_stack
 int		ft_atoi(char *str);
 int		is_wspace(char *str);
 int		is_number(char *str);
-char	**ft_split(char const *s, char c);
+char	**ft_split(char *s, char c);
 void	free_split(char **split);
 t_node	*lstnew_node(int cont);
 void	lstadd_back(t_node **lst, t_node *new_node);

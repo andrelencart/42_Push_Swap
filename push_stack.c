@@ -6,7 +6,7 @@
 /*   By: andcarva <andcarva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 18:10:44 by andcarva          #+#    #+#             */
-/*   Updated: 2024/12/12 16:46:27 by andcarva         ###   ########.fr       */
+/*   Updated: 2024/12/12 19:20:37 by andcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ void	print_stack(t_stack *stack)
 	if (!stack || !stack->head)
 		return ;
 	current = stack->head;
-	ft_printf("Stack (size: %d):\n", stack->size);
+	ft_printf("Stack size = %d\n", stack->size);
 	while (current)
 	{
 		// ft_printf("enta print_stack loop\n");
