@@ -6,7 +6,7 @@
 /*   By: andcarva <andcarva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 17:52:31 by andcarva          #+#    #+#             */
-/*   Updated: 2024/12/11 19:19:52 by andcarva         ###   ########.fr       */
+/*   Updated: 2024/12/12 16:43:35 by andcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,14 +34,17 @@ typedef struct s_stack
 }	t_stack;
 
 //Push_Swap
-int		ft_atoi(char **str);
+int		ft_atoi(char *str);
 int		is_wspace(char *str);
 int		is_number(char *str);
+char	**ft_split(char const *s, char c);
+void	free_split(char **split);
 t_node	*lstnew_node(int cont);
 void	lstadd_back(t_node **lst, t_node *new_node);
 int		lstsize(t_node *lst);
 void	add_node_stack(t_stack *stack, t_node *node);
 t_stack	*make_stack(int ac, char **av);
+void	print_stack(t_stack *stack);
 
 //Printf
 # define HEX_LB "0123456789abcdef"

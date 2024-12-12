@@ -6,7 +6,7 @@
 /*   By: andcarva <andcarva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 15:03:15 by andcarva          #+#    #+#             */
-/*   Updated: 2024/12/11 19:15:07 by andcarva         ###   ########.fr       */
+/*   Updated: 2024/12/12 14:46:57 by andcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,10 @@ t_node	*lstnew_node(int cont)
 {
 	t_node	*new_node;
 
+	// ft_printf("enta new_node\n");
 	new_node = malloc(sizeof(t_node));
 	if (!new_node)
-		return (free(new_node), NULL);
+		return (NULL);
 	new_node->cont = cont;
 	new_node->next = NULL;
 	new_node->prev = NULL;
@@ -29,6 +30,7 @@ void	lstadd_back(t_node **lst, t_node *new_node)
 {
 	t_node	*temp;
 
+	// ft_printf("entra add_back\n");
 	if (!*lst)
 	{
 		*lst = new_node;
