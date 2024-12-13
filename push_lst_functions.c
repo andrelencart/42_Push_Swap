@@ -6,7 +6,7 @@
 /*   By: andcarva <andcarva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 15:03:15 by andcarva          #+#    #+#             */
-/*   Updated: 2024/12/12 14:46:57 by andcarva         ###   ########.fr       */
+/*   Updated: 2024/12/13 20:10:04 by andcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,4 +57,29 @@ int	lstsize(t_node *lst)
 		lst = lst->next;
 	}
 	return (i);
+}
+
+void	stackclear(t_node **stack)
+{
+	t_node	*temp;
+
+	if (!stack)
+		return ;
+	while (*stack != NULL)
+	{
+		temp = (*stack)->next;
+		stackdelnode(*stack);
+		*stack = temp;
+	}
+}
+
+void	stackdelnode(t_node *node)
+{
+	t_node *temp;
+	
+	if (node)
+	{
+		temp = node->cont;
+		free(node);
+	}
 }

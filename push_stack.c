@@ -6,7 +6,7 @@
 /*   By: andcarva <andcarva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 18:10:44 by andcarva          #+#    #+#             */
-/*   Updated: 2024/12/12 19:20:37 by andcarva         ###   ########.fr       */
+/*   Updated: 2024/12/13 19:43:11 by andcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ static void	split_assemble_stack(t_stack *stack, char **split_nbr)
 	while (split_nbr[i])
 	{
 		cont = ft_atoi(split_nbr[i]);
+		// ft_printf("%s: %d\n", split_nbr[i], cont);
 		node = lstnew_node(cont);
 		if (!node)
 			return ;
@@ -37,7 +38,6 @@ t_stack	*make_stack(int ac, char **av)
 	char	**split_nbr;
 	int		i;
 
-	// ft_printf("entra stack\n");
 	i = 0;
 	stack = malloc(sizeof(t_stack));
 	if (!stack)
@@ -47,12 +47,14 @@ t_stack	*make_stack(int ac, char **av)
 	stack->tail = NULL;
 	while (i < ac)
 	{
-		// ft_printf("entra loop stack\n");
 		split_nbr = ft_split(av[i], ' ');
+		// ft_printf("%s\n", *split_nbr);
 		if (!split_nbr)
+			return (free(split_nbr), NULL);
+		if (!check_func(split_nbr))
 			return (NULL);
 		split_assemble_stack(stack, split_nbr);
-		// free_split(split_nbr);
+		free_split(split_nbr);
 		i++;
 	}
 	return (stack);

@@ -6,7 +6,7 @@
 /*   By: andcarva <andcarva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 17:22:44 by andcarva          #+#    #+#             */
-/*   Updated: 2024/12/12 18:51:30 by andcarva         ###   ########.fr       */
+/*   Updated: 2024/12/13 19:57:37 by andcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,18 +16,27 @@ int	main(int ac, char **av)
 {
 	t_stack *stack;
 	int	i;
-	// int valor = 0;
+	int	j;
 
 	i = 1;
 	if (ac <= 1)
 		return (0);
-	// ft_printf("entra main\n");
-		// ft_printf("entra loop\n");
-	stack = make_stack(ac - 1, &av[i]);
-	if (!stack)
-		return (0);
-	print_stack(stack);
-	// ft_printf("----------------------------------------------\n");
+	while (av[i])
+	{
+		j = 0;
+		while (is_wspace(av[i][j]))
+		{
+			if (av[i][j + 1] == '\0')
+				return (0);
+			j++;
+		}
+		i++;
+	}
+	i = 1;
+		stack = make_stack(ac - 1, &av[i]);
+		if (!stack)
+			return (0);
+		print_stack(stack);
 }
 
 
