@@ -6,7 +6,7 @@
 /*   By: andcarva <andcarva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 13:21:57 by andcarva          #+#    #+#             */
-/*   Updated: 2024/12/13 16:49:09 by andcarva         ###   ########.fr       */
+/*   Updated: 2024/12/16 17:10:58 by andcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,17 +18,17 @@ bool	check_func(char **split_nbr)
 	int	j;
 
 	j = 0;
-	// ft_printf("a");
 	while (split_nbr[j] != NULL)
 	{
 		i = 0;
-		// ft_printf("a");
+		if (split_nbr[j][i] == '-' && 
+			(split_nbr[j][i + 1] == ' ' || split_nbr[j][i + 1] == '\0'))
+			return (false);
 		if (split_nbr[j][i] == '-' || split_nbr[j][i] == '+')
 			i++;
-		// ft_printf("a");
 		while (is_number(split_nbr[j][i]) && split_nbr[j][i] != '\0')
 			i++;
-		if(split_nbr[j][i] != '\0') 
+		if(split_nbr[j][i] != '\0')
 			return (false);
 		j++;
 	}

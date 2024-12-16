@@ -6,7 +6,7 @@
 /*   By: andcarva <andcarva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 17:52:31 by andcarva          #+#    #+#             */
-/*   Updated: 2024/12/13 20:04:19 by andcarva         ###   ########.fr       */
+/*   Updated: 2024/12/16 20:09:27 by andcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ typedef struct s_node
 	struct s_node	*prev;
 }	t_node;
 
-//rotate head -> tail | tail -> head
+// rotate head -> tail | tail -> head
 typedef struct s_stack
 {
 	int		size;
@@ -34,7 +34,7 @@ typedef struct s_stack
 	t_node	*tail;
 }	t_stack;
 
-//Push_Swap
+// Push_Swap
 int		ft_atoi(char *str);
 int		is_wspace(char c);
 int		is_number(char c);
@@ -42,15 +42,19 @@ bool	check_func(char **split_nbr);
 char	**ft_split(char *s, char c);
 void	free_split(char **split);
 t_node	*lstnew_node(int cont);
-void	lstadd_back(t_node **lst, t_node *new_node);
-void	stackclear(t_node **stack, void (*del)(void*));
-void	stackdelnode(t_node *node, void (*del)(void*));
+void	stackadd_back(t_stack *stack, t_node *new_node);
+void	stackadd_front(t_stack *t_stack, t_node *new_node);
+void	stackclear(t_stack *stack);
+// void	stackdelnode(t_node *node, void (*del)(void*));
 int		lstsize(t_node *lst);
-void	add_node_stack(t_stack *stack, t_node *node);
+// void	add_node_stack(t_stack *stack, t_node *node);
 t_stack	*make_stack(int ac, char **av);
 void	print_stack(t_stack *stack);
 
-//Printf
+// Rules
+void	push_b(t_stack *stackA, t_stack *stackB);
+
+// Printf
 # define HEX_LB "0123456789abcdef"
 # define HEX_UPB "0123456789ABCDEF"
 

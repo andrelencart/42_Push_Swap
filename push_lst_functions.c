@@ -6,7 +6,7 @@
 /*   By: andcarva <andcarva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 15:03:15 by andcarva          #+#    #+#             */
-/*   Updated: 2024/12/13 20:10:04 by andcarva         ###   ########.fr       */
+/*   Updated: 2024/12/16 20:11:19 by andcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,24 +26,45 @@ t_node	*lstnew_node(int cont)
 	return (new_node);
 }
 
-void	lstadd_back(t_node **lst, t_node *new_node)
+void	stackadd_back(t_stack *stack, t_node *new_node)
 {
-	t_node	*temp;
-
 	// ft_printf("entra add_back\n");
-	if (!*lst)
+	stack->size++;
+	if (!stack->head)
 	{
-		*lst = new_node;
+		stack->head = new_node;
+		stack->tail = new_node;
 		new_node->next = NULL;
-		new_node->prev = NULL;
+		new_node->prev = NULL; //leaks?
 		return ;
 	}
-	temp = *lst;
-	while (temp->next != NULL)
-		temp = temp->next;
-	temp->next = new_node;
-	new_node->prev = temp;
+	stack->tail->next = new_node;
+	new_node->prev = stack->tail;
 	new_node->next = NULL;
+	stack->tail = new_node;
+	// temp = *lst;
+	// while (temp->next != NULL)
+	// 	temp = temp->next;
+	// temp->next = new_node;
+	// new_node->prev = temp;
+	// new_node->next = NULL;
+}
+
+void	stackadd_front(t_stack *stack, t_node *new_node)
+{
+	stack->size++;
+	if (!stack->head)
+	{
+		stack->head = new_node;
+		stack->tail = new_node;
+		new_node->next = NULL;
+		new_node->prev = NULL; //leaks?
+		return ;
+	}
+	new_node->next = stack->head;
+	stack->head->prev = new_node;
+	stack->head = new_node;
+	new_node->prev = NULL;
 }
 
 int	lstsize(t_node *lst)
@@ -59,27 +80,19 @@ int	lstsize(t_node *lst)
 	return (i);
 }
 
-void	stackclear(t_node **stack)
+void	stackclear(t_stack *stack)
 {
 	t_node	*temp;
 
-	if (!stack)
+	if (!stack || !stack->head)
 		return ;
-	while (*stack != NULL)
+	while (stack->head != NULL)
 	{
-		temp = (*stack)->next;
-		stackdelnode(*stack);
-		*stack = temp;
+		temp = stack->head->next;
+		free(stack->head);
+		stack->head = temp;
 	}
+	stack->tail = NULL;
+	stack->size = 0;
 }
 
-void	stackdelnode(t_node *node)
-{
-	t_node *temp;
-	
-	if (node)
-	{
-		temp = node->cont;
-		free(node);
-	}
-}

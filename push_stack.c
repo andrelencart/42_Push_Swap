@@ -6,7 +6,7 @@
 /*   By: andcarva <andcarva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 18:10:44 by andcarva          #+#    #+#             */
-/*   Updated: 2024/12/13 19:43:11 by andcarva         ###   ########.fr       */
+/*   Updated: 2024/12/16 20:26:02 by andcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ static void	split_assemble_stack(t_stack *stack, char **split_nbr)
 		node = lstnew_node(cont);
 		if (!node)
 			return ;
-		add_node_stack(stack, node);
+		stackadd_back(stack, node);
 		i++;
 	}
 }
@@ -51,8 +51,8 @@ t_stack	*make_stack(int ac, char **av)
 		// ft_printf("%s\n", *split_nbr);
 		if (!split_nbr)
 			return (free(split_nbr), NULL);
-		if (!check_func(split_nbr))
-			return (NULL);
+		if (!check_func(split_nbr)) // leaks for sure
+			return (stackclear(stack), NULL);
 		split_assemble_stack(stack, split_nbr);
 		free_split(split_nbr);
 		i++;
@@ -60,20 +60,20 @@ t_stack	*make_stack(int ac, char **av)
 	return (stack);
 }
 
-void	add_node_stack(t_stack *stack, t_node *node)
-{
-	// ft_printf("entra add_node_stack\n");
-	lstadd_back(&stack->head, node);
-	stack->tail = node;
-	stack->size++;
-}
+// void	add_node_stack(t_stack *stack, t_node *node)
+// {
+// 	// ft_printf("entra add_node_stack\n");
+// 	stackadd_back(&stack->head, node);
+// 	stack->tail = node;
+// 	stack->size++;
+// }
 
 void	print_stack(t_stack *stack)
 {
 	t_node	*current;
 
 	// ft_printf("entra print_stack\n");
-	if (!stack || !stack->head)
+	if (!stack)
 		return ;
 	current = stack->head;
 	ft_printf("Stack size = %d\n", stack->size);

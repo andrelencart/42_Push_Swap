@@ -6,7 +6,7 @@
 /*   By: andcarva <andcarva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 17:22:44 by andcarva          #+#    #+#             */
-/*   Updated: 2024/12/13 19:57:37 by andcarva         ###   ########.fr       */
+/*   Updated: 2024/12/16 20:24:07 by andcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 
 int	main(int ac, char **av)
 {
-	t_stack *stack;
+	t_stack *stackA;
+	t_stack *stackB;
 	int	i;
 	int	j;
 
@@ -33,10 +34,18 @@ int	main(int ac, char **av)
 		i++;
 	}
 	i = 1;
-		stack = make_stack(ac - 1, &av[i]);
-		if (!stack)
-			return (0);
-		print_stack(stack);
+	stackA = make_stack(ac - 1, &av[i]);
+	stackB = make_stack(0, NULL);
+	if (!stackA)
+		return (0);
+	print_stack(stackA);
+	stackclear(stackA);
+	print_stack(stackA);
+	// push_b(stackA, stackB);
+	// push_b(stackA, stackB);
+	// push_b(stackA, stackB);
+	// push_b(stackA, stackB);
+	// print_stack(stackB);
 }
 
 
