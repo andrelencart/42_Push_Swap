@@ -6,25 +6,11 @@
 /*   By: andcarva <andcarva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 15:03:15 by andcarva          #+#    #+#             */
-/*   Updated: 2024/12/16 20:11:19 by andcarva         ###   ########.fr       */
+/*   Updated: 2024/12/18 21:01:05 by andcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-t_node	*lstnew_node(int cont)
-{
-	t_node	*new_node;
-
-	// ft_printf("enta new_node\n");
-	new_node = malloc(sizeof(t_node));
-	if (!new_node)
-		return (NULL);
-	new_node->cont = cont;
-	new_node->next = NULL;
-	new_node->prev = NULL;
-	return (new_node);
-}
 
 void	stackadd_back(t_stack *stack, t_node *new_node)
 {
@@ -84,8 +70,6 @@ void	stackclear(t_stack *stack)
 {
 	t_node	*temp;
 
-	if (!stack || !stack->head)
-		return ;
 	while (stack->head != NULL)
 	{
 		temp = stack->head->next;
@@ -93,6 +77,14 @@ void	stackclear(t_stack *stack)
 		stack->head = temp;
 	}
 	stack->tail = NULL;
+	stack->head = NULL;
 	stack->size = 0;
 }
 
+// void	delnode(t_node *node)
+// {
+// 	if(node)
+// 	{
+// 		free(node);
+// 	}
+// }

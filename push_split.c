@@ -6,13 +6,13 @@
 /*   By: andcarva <andcarva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 16:09:24 by andcarva          #+#    #+#             */
-/*   Updated: 2024/12/12 19:04:11 by andcarva         ###   ########.fr       */
+/*   Updated: 2024/12/18 20:38:41 by andcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	free_split(char **split)
+void	free_s(char **split)
 {
 	size_t	i;
 
@@ -83,7 +83,7 @@ char	**ft_split(char *s, char c)
 		{
 			split[i] = get_word(s, c);
 			if (!split[i])
-				return (free_split(split), NULL);
+				return (free_s(split), NULL);
 			i++;
 			while (*s && *s != c)
 				s++;

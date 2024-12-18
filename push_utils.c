@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap_utils.c                                  :+:      :+:    :+:   */
+/*   push_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: andcarva <andcarva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 20:06:19 by andcarva          #+#    #+#             */
-/*   Updated: 2024/12/13 20:06:26 by andcarva         ###   ########.fr       */
+/*   Updated: 2024/12/18 18:34:02 by andcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,17 +34,26 @@ int	ft_atoi(char *str)
 	return (result * sign);
 }
 
-int	is_wspace(char c)
+bool	is_wspace(char c)
 {
 	if (c == ' ' || (c >= 9 && c <= 13))
-		return (1);
-	return (0);
+		return (true);
+	return (false);
 }
 
-int	is_number(char c)
+bool	is_number(char c)
 {
 	if (c >= '0' && c <= '9')
-		return (1);
-	return (0);
+		return (true);
+	return (false);
 }
 
+int	ft_strcmp(char *s1, char *s2)
+{
+	while(*s2 && *s1 && *s1 == *s2)
+	{
+		s1++;
+		s2++;
+	}
+	return (*s1 - *s2);
+}
