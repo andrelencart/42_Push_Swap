@@ -6,7 +6,7 @@
 /*   By: andcarva <andcarva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 18:10:44 by andcarva          #+#    #+#             */
-/*   Updated: 2024/12/18 21:08:26 by andcarva         ###   ########.fr       */
+/*   Updated: 2024/12/19 20:55:58 by andcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,19 +41,19 @@ t_stack	make_stack(int ac, char **av)
 	int		i;
 
 	i = 0;
-	stack = (t_stack){0}; // creating struct, all null;
+	stack = (t_stack){0};
 	while (i < ac)
 	{
 		split_nbr = ft_split(av[i], ' ');
 		if (!split_nbr)
-		{	
+		{
 			stackclear(&stack);
-			break;
+			break ;
 		}
 		if (!check_func(split_nbr) || !split_assemble_stack(&stack, split_nbr))
-		{	
+		{
 			(free_s(split_nbr), stackclear(&stack));
-			break;
+			break ;
 		}
 		free_s(split_nbr);
 		i++;

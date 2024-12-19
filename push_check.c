@@ -6,7 +6,7 @@
 /*   By: andcarva <andcarva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 13:21:57 by andcarva          #+#    #+#             */
-/*   Updated: 2024/12/18 21:11:03 by andcarva         ###   ########.fr       */
+/*   Updated: 2024/12/19 20:57:15 by andcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,14 @@ bool	check_func(char **split_nbr)
 	while (split_nbr[j] != NULL)
 	{
 		i = 0;
-		if (split_nbr[j][i] == '-' && 
+		if (split_nbr[j][i] == '-' && \
 			(split_nbr[j][i + 1] == ' ' || split_nbr[j][i + 1] == '\0'))
 			return (false);
 		if (split_nbr[j][i] == '-' || split_nbr[j][i] == '+')
 			i++;
 		while (is_number(split_nbr[j][i]) && split_nbr[j][i] != '\0')
 			i++;
-		if(split_nbr[j][i] != '\0')
+		if (split_nbr[j][i] != '\0')
 			return (false);
 		j++;
 	}
@@ -38,7 +38,7 @@ bool	check_func(char **split_nbr)
 bool	check_spaces(char *str)
 {
 	int	j;
-	
+
 	j = 0;
 	while (str[j] && is_wspace(str[j]))
 		j++;
@@ -47,9 +47,9 @@ bool	check_spaces(char *str)
 	return (true);
 }
 
-bool	check_dupes(t_stack *stack, int	num)
+bool	check_dupes(t_stack *stack, int num)
 {
-	t_node *temp;
+	t_node	*temp;
 
 	temp = stack->head;
 	while (temp)

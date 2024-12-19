@@ -6,7 +6,7 @@
 /*   By: andcarva <andcarva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 15:03:36 by andcarva          #+#    #+#             */
-/*   Updated: 2024/12/11 15:03:40 by andcarva         ###   ########.fr       */
+/*   Updated: 2024/12/19 20:54:38 by andcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,45 +91,3 @@ int	ft_printf_rules(const char spec, va_list list)
 		print += ft_percentage();
 	return (print);
 }
-
-// int	main(void)
-// {
-// 	char			c = 'a';
-// 	char			*str = NULL;
-// 	void			*p = NULL;
-// 	int				di = 0;
-// 	unsigned int	u = 0;
-// 	unsigned int	x = 123;
-// 	unsigned int	X = 123;
-// 	unsigned long int	lu = SIZE_MAX;
-	
-// 	printf("pcharacter: %c pcharacter: %c\n", c, c);
-// 	ft_printf("character: %c character: %c\n", c, c);
-	
-// 	printf("pstring: %s\n", str);
-// 	ft_printf("string: %s\n", str);
-
-// 	printf("padress: %p\n", p);
-// 	ft_printf("adress: %p\n", p);
-	
-// 	printf("pdigit/integer: %i\n", di);
-// 	ft_printf("digit/integer: %i\n", di);
-	
-// 	printf("pdigit: %d\n", di);
-// 	ft_printf("digit: %d\n", di);
-	
-// 	printf("punsigned decimal: %u\n", u);
-// 	ft_printf("unsigned decimal: %u\n", u);
-	
-// 	printf("pLhexdecimal: %x\n", x);
-// 	ft_printf("Lhexdecimal: %x\n", x);
-	
-// 	printf("pUhexdecimal: %X\n", X);
-// 	ft_printf("Uhexdecimal: %X\n", X);
-	
-// 	printf("percentage: %%\n");
-// 	ft_printf("percentage: %%\n");
-
-// 	printf("percentage: %lu\n", lu);
-// 	ft_printf("percentage: %lu\n", lu);
-// }

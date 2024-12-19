@@ -6,7 +6,7 @@
 /*   By: andcarva <andcarva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 15:03:15 by andcarva          #+#    #+#             */
-/*   Updated: 2024/12/18 21:01:05 by andcarva         ###   ########.fr       */
+/*   Updated: 2024/12/19 20:55:12 by andcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,6 @@ void	stackadd_back(t_stack *stack, t_node *new_node)
 	new_node->prev = stack->tail;
 	new_node->next = NULL;
 	stack->tail = new_node;
-	// temp = *lst;
-	// while (temp->next != NULL)
-	// 	temp = temp->next;
-	// temp->next = new_node;
-	// new_node->prev = temp;
-	// new_node->next = NULL;
 }
 
 void	stackadd_front(t_stack *stack, t_node *new_node)
@@ -53,19 +47,6 @@ void	stackadd_front(t_stack *stack, t_node *new_node)
 	new_node->prev = NULL;
 }
 
-int	lstsize(t_node *lst)
-{
-	int	i;
-
-	i = 0;
-	while (lst && lst != NULL)
-	{
-		i++;
-		lst = lst->next;
-	}
-	return (i);
-}
-
 void	stackclear(t_stack *stack)
 {
 	t_node	*temp;
@@ -80,11 +61,20 @@ void	stackclear(t_stack *stack)
 	stack->head = NULL;
 	stack->size = 0;
 }
-
-// void	delnode(t_node *node)
+// int	lstsize(t_node *lst)
 // {
-// 	if(node)
+// 	int	i;
+
+// 	i = 0;
+// 	while (lst && lst != NULL)
 // 	{
-// 		free(node);
+// 		i++;
+// 		lst = lst->next;
 // 	}
+// 	return (i);
+// }
+
+// int	ft_min(t_stack *stack)
+// {
+
 // }

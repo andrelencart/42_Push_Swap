@@ -6,7 +6,7 @@
 /*   By: andcarva <andcarva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 20:06:19 by andcarva          #+#    #+#             */
-/*   Updated: 2024/12/18 18:34:02 by andcarva         ###   ########.fr       */
+/*   Updated: 2024/12/19 20:57:43 by andcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ bool	is_number(char c)
 
 int	ft_strcmp(char *s1, char *s2)
 {
-	while(*s2 && *s1 && *s1 == *s2)
+	while (*s2 && *s1 && *s1 == *s2)
 	{
 		s1++;
 		s2++;

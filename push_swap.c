@@ -6,7 +6,7 @@
 /*   By: andcarva <andcarva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 17:22:44 by andcarva          #+#    #+#             */
-/*   Updated: 2024/12/18 21:01:16 by andcarva         ###   ########.fr       */
+/*   Updated: 2024/12/19 20:46:14 by andcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@
 
 int	main(int ac, char **av)
 {
-	static t_stack	stackA;
-	static t_stack	stackB;
-	int		i;
+	static t_stack	stack_a;
+	static t_stack	stack_b;
+	int				i;
 
 	i = 1;
 	if (ac <= 1)
@@ -32,24 +32,13 @@ int	main(int ac, char **av)
 			return (0);
 	}
 	i = 1;
-	stackA = make_stack(ac - 1, &av[i]);
-	if (!stackA.head)
+	stack_a = make_stack(ac - 1, &av[i]);
+	if (!stack_a.head)
 		return (0);
-	print_stack(&stackA, 'A');
-	push(&stackA, &stackB, 'b');
-	push(&stackA, &stackB, 'b');
-	push(&stackA, &stackB, 'b');
-	print_stack(&stackB, 'B');
-	rotate(&stackB, 'b');
-	print_stack(&stackB, 'B');
-	rev_rotate(&stackB, 'b');
-	print_stack(&stackB, 'B');
-	// swap(stackA, 'a');
-	print_stack(&stackA, 'A');
-	// print_stack(&stackB, 'B');
-	// push_a(&stackA, &stackB);
-	// push_a(&stackA, &stackB);
-	// print_stack(&stackB, 'B');
-	stackclear(&stackA);
-	stackclear(&stackB);
+	print_stack(&stack_a, 'A');
+	// rev_rotate(&stack_a, 'a');
+	master_sort(&stack_a);
+	print_stack(&stack_a, 'A');
+	stackclear(&stack_a);
+	stackclear(&stack_b);
 }

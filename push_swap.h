@@ -6,7 +6,7 @@
 /*   By: andcarva <andcarva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 17:52:31 by andcarva          #+#    #+#             */
-/*   Updated: 2024/12/18 20:50:22 by andcarva         ###   ########.fr       */
+/*   Updated: 2024/12/19 20:54:17 by andcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,15 +42,15 @@ t_node	*lstnew_node(int cont);
 void	stackadd_back(t_stack *stack, t_node *new_node);
 void	stackadd_front(t_stack *t_stack, t_node *new_node);
 void	stackclear(t_stack *stack);
-int		lstsize(t_node *lst);
 t_stack	make_stack(int ac, char **av);
 void	print_stack(t_stack *stack, char id);
+// int		lstsize(t_node *lst);
 // void	delnode(t_node *node);
 // void	stackdelnode(t_node *node, void (*del)(void*));
 // void	add_node_stack(t_stack *stack, t_node *node);
 
 // Checks
-bool	check_dupes(t_stack *stack, int	num);
+bool	check_dupes(t_stack *stack, int num);
 bool	check_func(char **split_nbr);
 bool	check_spaces(char *str);
 bool	is_wspace(char c);
@@ -58,9 +58,13 @@ bool	is_number(char c);
 
 // Rules
 void	push(t_stack *stack1, t_stack *stack2, char id);
-void	swap(t_stack *stackA, char id);
+void	swap(t_stack *stack, char id);
 void	rotate(t_stack *stack, char id);
 void	rev_rotate(t_stack *stack, char id);
+
+// Sort
+void	sort_three(t_stack *stack);
+void	master_sort(t_stack *stack);
 
 // Printf
 # define HEX_LB "0123456789abcdef"
