@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_lst_functions.c                               :+:      :+:    :+:   */
+/*   push_stack_utils.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: andcarva <andcarva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 15:03:15 by andcarva          #+#    #+#             */
-/*   Updated: 2024/12/19 20:55:12 by andcarva         ###   ########.fr       */
+/*   Updated: 2024/12/20 17:46:11 by andcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,13 @@
 
 void	stackadd_back(t_stack *stack, t_node *new_node)
 {
-	// ft_printf("entra add_back\n");
 	stack->size++;
 	if (!stack->head)
 	{
 		stack->head = new_node;
 		stack->tail = new_node;
 		new_node->next = NULL;
-		new_node->prev = NULL; //leaks?
+		new_node->prev = NULL;
 		return ;
 	}
 	stack->tail->next = new_node;
@@ -38,7 +37,7 @@ void	stackadd_front(t_stack *stack, t_node *new_node)
 		stack->head = new_node;
 		stack->tail = new_node;
 		new_node->next = NULL;
-		new_node->prev = NULL; //leaks?
+		new_node->prev = NULL;
 		return ;
 	}
 	new_node->next = stack->head;
@@ -61,6 +60,43 @@ void	stackclear(t_stack *stack)
 	stack->head = NULL;
 	stack->size = 0;
 }
+
+int	ft_min(t_stack *stack)
+{
+	int	min_value;
+	t_node	*temp;
+	
+	if (!stack)
+		return (0);
+	min_value = stack->head->cont;
+	temp = stack->head->next;
+	while (temp)
+	{
+		if (temp->cont < min_value)
+			min_value = temp->cont;
+		temp = temp->next;
+	}
+		return (min_value);
+}
+
+int	ft_max(t_stack *stack)
+{
+	int	max_value;
+	t_node	*temp;
+	
+	if (!stack)
+		return (0);
+	max_value = stack->head->cont;
+	temp = stack->head->next;
+	while (temp)
+	{
+		if (temp->cont > max_value)
+			max_value = temp->cont;
+		temp = temp->next;
+	}
+	return (max_value);	
+}
+
 // int	lstsize(t_node *lst)
 // {
 // 	int	i;
@@ -72,9 +108,4 @@ void	stackclear(t_stack *stack)
 // 		lst = lst->next;
 // 	}
 // 	return (i);
-// }
-
-// int	ft_min(t_stack *stack)
-// {
-
 // }

@@ -6,13 +6,13 @@
 /*   By: andcarva <andcarva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 18:10:44 by andcarva          #+#    #+#             */
-/*   Updated: 2024/12/19 20:55:58 by andcarva         ###   ########.fr       */
+/*   Updated: 2024/12/20 18:28:46 by andcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static bool	split_assemble_stack(t_stack *stack, char **split_nbr)
+static bool	assemble_stack(t_stack *stack, char **split_nbr)
 {
 	t_node	*node;
 	int		i;
@@ -24,7 +24,10 @@ static bool	split_assemble_stack(t_stack *stack, char **split_nbr)
 	{
 		cont = ft_atoi(split_nbr[i]);
 		if (check_dupes(stack, cont))
+		{
+			ft_printf("Error\n");
 			return (stackclear(stack), false);
+		}
 		node = lstnew_node(cont);
 		if (!node)
 			return (stackclear(stack), false);
@@ -50,9 +53,9 @@ t_stack	make_stack(int ac, char **av)
 			stackclear(&stack);
 			break ;
 		}
-		if (!check_func(split_nbr) || !split_assemble_stack(&stack, split_nbr))
+		if (!check_non_num(split_nbr) || !assemble_stack(&stack, split_nbr))
 		{
-			(free_s(split_nbr), stackclear(&stack));
+			(ft_printf("Error\n"), free_s(split_nbr), stackclear(&stack));
 			break ;
 		}
 		free_s(split_nbr);

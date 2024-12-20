@@ -6,13 +6,13 @@
 /*   By: andcarva <andcarva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 13:21:57 by andcarva          #+#    #+#             */
-/*   Updated: 2024/12/19 20:57:15 by andcarva         ###   ########.fr       */
+/*   Updated: 2024/12/20 16:08:05 by andcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-bool	check_func(char **split_nbr)
+bool	check_non_num(char **split_nbr)
 {
 	int	i;
 	int	j;
@@ -59,4 +59,25 @@ bool	check_dupes(t_stack *stack, int num)
 		temp = temp->next;
 	}
 	return (false);
+}
+
+bool	check_sorted(t_stack *stack)
+{
+	int	cont;
+	t_node	*temp;
+
+	if (!stack)
+		return (false);
+	cont = stack->head->cont;
+	temp = stack->head->next;
+	while (temp)
+	{
+		if (cont < temp->cont)
+			cont = temp->cont;
+		else 
+			return (false);
+		temp = temp->next;
+		
+	}
+	return (true);
 }

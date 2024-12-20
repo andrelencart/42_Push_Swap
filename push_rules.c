@@ -6,23 +6,23 @@
 /*   By: andcarva <andcarva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 16:52:04 by andcarva          #+#    #+#             */
-/*   Updated: 2024/12/19 20:58:49 by andcarva         ###   ########.fr       */
+/*   Updated: 2024/12/20 17:39:44 by andcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	push(t_stack *stack1, t_stack *stack2, char id)
+void	push(t_stack *stack_from, t_stack *stack_to, char id)
 {
 	t_node	*temp;
 
-	if (!stack1->head)
+	if (!stack_from->head)
 		return ;
 	ft_printf("p%c\n", id);
-	temp = stack1->head;
-	stack1->head = stack1->head->next;
-	stackadd_front(stack2, temp);
-	stack1->size--;
+	temp = stack_from->head;
+	stack_from->head = stack_from->head->next;
+	stackadd_front(stack_to, temp);
+	stack_from->size--;
 }
 
 void	swap(t_stack *stack, char id)
