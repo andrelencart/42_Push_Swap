@@ -6,7 +6,7 @@
 /*   By: andcarva <andcarva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 17:52:31 by andcarva          #+#    #+#             */
-/*   Updated: 2024/12/20 20:17:33 by andcarva         ###   ########.fr       */
+/*   Updated: 2024/12/27 17:44:26 by andcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ typedef struct s_stack
 }	t_stack;
 
 // Push_Swap
-int		ft_atoi(char *str);
+long	ft_atol(char *str);
 int		ft_strcmp(char *s1, char *s2);
 char	**ft_split(char *s, char c);
 void	free_s(char **split);
@@ -63,13 +63,17 @@ bool	check_sorted(t_stack *stack);
 
 // Rules
 void	push(t_stack *stack_from, t_stack *stack_to, char id);
-void	swap(t_stack *stack, char id);
-void	rotate(t_stack *stack, char id);
-void	rev_rotate(t_stack *stack, char id);
+void	swap(t_stack *stack, char id, int flag);
+void	double_swap(t_stack *stack);
+void	rotate(t_stack *stack, char id, int flag);
+void	double_rotate(t_stack *stack);
+void	rev_rotate(t_stack *stack, char id, int flag);
+void	double_rev_rot(t_stack *stack);
 
 // Sort
-void	sort_three(t_stack *stack);
-void	master_sort(t_stack *stack);
+void	sort_three_a(t_stack *stack);
+void	sort_three_b(t_stack *stack_b);
+void	master_sort(t_stack *stack_a, t_stack *stack_b);
 int		ft_min(t_stack *stack);
 int		ft_max(t_stack *stack);
 // void	sort_stack_b(t_stack *stack_a, t_stack *stack_b);

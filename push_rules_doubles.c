@@ -1,36 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_chunks.c                                      :+:      :+:    :+:   */
+/*   push_rules_doubles.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: andcarva <andcarva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/20 18:24:55 by andcarva          #+#    #+#             */
-/*   Updated: 2024/12/27 14:37:30 by andcarva         ###   ########.fr       */
+/*   Created: 2024/12/27 17:30:28 by andcarva          #+#    #+#             */
+/*   Updated: 2024/12/27 17:49:17 by andcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	*gen_chunks(t_stack *stack, int chunk_size)
+void	double_swap(t_stack *stack)
 {
-	int	num_chunks;
-	int	*chunks;
-	int	i;
-	int	curr_min;
-	
-	i = 0;
-	num_chunks = (stack->size + chunk_size - 1) / chunk_size; 
-	curr_min = ft_min(stack);
-	chunks = malloc(sizeof(int) * (num_chunks + 1));
-	if (!chunks)
-		return (0);
-	while (i < num_chunks)
-	{
-		chunks[i] = curr_min + chunk_size * (i + 1);
-		i++; 
-	}
-	chunks[i] = INT_MAX;
-	return (chunks);
+	ft_printf("ss\n");
+	swap(stack, 'a', 0);
+	swap(stack, 'b', 0);
 }
 
+void	double_rotate(t_stack *stack)
+{
+	ft_printf("rr\n");
+	rotate(stack, 'a', 0);
+	rotate(stack, 'b', 0);
+}
+
+void	double_rev_rot(t_stack *stack)
+{
+	ft_printf("rrr\n");
+	rev_rotate(stack, 'a', 0);
+	rev_rotate(stack, 'b', 0);
+}

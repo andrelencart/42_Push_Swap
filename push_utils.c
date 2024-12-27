@@ -6,29 +6,34 @@
 /*   By: andcarva <andcarva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 20:06:19 by andcarva          #+#    #+#             */
-/*   Updated: 2024/12/19 20:57:43 by andcarva         ###   ########.fr       */
+/*   Updated: 2024/12/27 16:40:35 by andcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_atoi(char *str)
+long	ft_atol(char *str)
 {
-	int	sign;
-	int	result;
-
+	long	sign;
+	long	result;
+	long	max;
+	
 	sign = 1;
 	result = 0;
+	max = (long)INT_MAX + 1;
 	while (*str != '\0' && is_wspace(*str))
 		str++;
-	if (*str == '-')
+	if (*str == '-' || *str == '+')
 	{
-		sign *= -1;
+		if (*str == '-')
+			sign *= -1;
 		str++;
 	}
 	while (*str != '\0' && is_number(*str))
 	{
 		result = result * 10 + (*str - '0');
+		if (result > max)
+			break ;
 		str++;
 	}
 	return (result * sign);

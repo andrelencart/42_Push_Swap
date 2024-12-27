@@ -6,7 +6,7 @@
 /*   By: andcarva <andcarva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 18:10:44 by andcarva          #+#    #+#             */
-/*   Updated: 2024/12/20 18:28:46 by andcarva         ###   ########.fr       */
+/*   Updated: 2024/12/27 16:35:08 by andcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,19 +16,21 @@ static bool	assemble_stack(t_stack *stack, char **split_nbr)
 {
 	t_node	*node;
 	int		i;
-	int		cont;
-
+	long		cont;
+	
 	i = 0;
 	cont = 0;
 	while (split_nbr[i])
 	{
-		cont = ft_atoi(split_nbr[i]);
-		if (check_dupes(stack, cont))
+		cont = ft_atol(split_nbr[i]);
+		if (cont < INT_MIN || cont > INT_MAX)
+			return (false);
+		if (check_dupes(stack, (int)cont))
 		{
 			ft_printf("Error\n");
 			return (stackclear(stack), false);
 		}
-		node = lstnew_node(cont);
+		node = lstnew_node((int)cont);
 		if (!node)
 			return (stackclear(stack), false);
 		stackadd_back(stack, node);

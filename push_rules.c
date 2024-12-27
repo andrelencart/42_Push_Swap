@@ -6,7 +6,7 @@
 /*   By: andcarva <andcarva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 16:52:04 by andcarva          #+#    #+#             */
-/*   Updated: 2024/12/20 17:39:44 by andcarva         ###   ########.fr       */
+/*   Updated: 2024/12/27 17:39:10 by andcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,21 +25,23 @@ void	push(t_stack *stack_from, t_stack *stack_to, char id)
 	stack_from->size--;
 }
 
-void	swap(t_stack *stack, char id)
+void	swap(t_stack *stack, char id, int flag)
 {
 	int	temp;
 
 	if (stack->size == 0 || stack->size == 1)
 		return ;
-	ft_printf("s%c\n", id);
+	if (flag)
+		ft_printf("rr%c\n", id);
 	temp = stack->head->cont;
 	stack->head->cont = stack->head->next->cont;
 	stack->head->next->cont = temp;
 }
 
-void	rotate(t_stack *stack, char id)
+void	rotate(t_stack *stack, char id, int flag)
 {
-	ft_printf("r%c\n", id);
+	if (flag)
+		ft_printf("rr%c\n", id);
 	if (stack->size <= 2)
 		return ;
 	stack->head->prev = stack->tail;
@@ -50,9 +52,10 @@ void	rotate(t_stack *stack, char id)
 	stack->tail->next = NULL;
 }
 
-void	rev_rotate(t_stack *stack, char id)
+void	rev_rotate(t_stack *stack, char id, int flag)
 {
-	ft_printf("rr%c\n", id);
+	if (flag)
+		ft_printf("rr%c\n", id);
 	if (stack->size <= 2)
 		return ;
 	stack->tail->next = stack->head;
