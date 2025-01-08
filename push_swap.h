@@ -6,7 +6,7 @@
 /*   By: andcarva <andcarva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 17:52:31 by andcarva          #+#    #+#             */
-/*   Updated: 2024/12/27 17:44:26 by andcarva         ###   ########.fr       */
+/*   Updated: 2025/01/07 17:55:28 by andcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,14 @@ typedef struct s_stack
 	t_node	*head;
 	t_node	*tail;
 }	t_stack;
+
+typedef struct s_moves
+{
+	int	mov_toa;
+	int	mov_pnb;
+	int	min_mov;
+	int	total_mov;
+}	t_moves;
 
 // Push_Swap
 long	ft_atol(char *str);
@@ -76,7 +84,12 @@ void	sort_three_b(t_stack *stack_b);
 void	master_sort(t_stack *stack_a, t_stack *stack_b);
 int		ft_min(t_stack *stack);
 int		ft_max(t_stack *stack);
-// void	sort_stack_b(t_stack *stack_a, t_stack *stack_b);
+int		find_position_in_b(t_stack *stack_b, int num);
+int		find_position_in_a(t_stack *stack_a, int num);
+int		calc_moves(t_stack *stack, int position);
+t_moves	calc_total_moves(t_stack *stack_a, t_stack *stack_b, int num);
+t_moves	find_best_move(t_stack *stack_from, t_stack *stack_to);
+void	execute_best_mov(t_stack *stack_a, t_stack *stack_b, t_moves best_move);
 
 // Printf
 int		ft_printf(const char *str, ...);
@@ -89,9 +102,5 @@ int		ft_put_nbr_base(unsigned int nbr, char *base);
 int		ft_put_ptr(uintptr_t ptr);
 size_t	ft_strlen(const char *str);
 char	*ft_itoa(int n);
-// int		ft_ulength(unsigned int n);
-// char	*ft_unitoa(unsigned int n);
-// int		ft_percentage(void);
-// int		ft_put_nbr_ptr(uintptr_t nbr, char *base);
 
 #endif //PUSH_SWAP_H

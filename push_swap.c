@@ -6,21 +6,16 @@
 /*   By: andcarva <andcarva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 17:22:44 by andcarva          #+#    #+#             */
-/*   Updated: 2024/12/27 17:54:31 by andcarva         ###   ########.fr       */
+/*   Updated: 2025/01/08 16:43:15 by andcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-// t_stack init()
-// {
-// 	return ((t_stack){.size=10,.head=NULL, .tail=NULL});
-// }
-
 int	main(int ac, char **av)
 {
 	static t_stack	stack_a;
-	// static t_stack	stack_b;
+	static t_stack	stack_b;
 	int				i;
 	// int j = 0;
 
@@ -40,12 +35,12 @@ int	main(int ac, char **av)
 	// ft_printf("%d\n", j);
 	print_stack(&stack_a, 'A');
 	ft_printf("---------------->\n");
-	// double_rev_rot(&stack_a);
-	// master_sort(&stack_a, &stack_b);
-	// sort_stack_b(&stack_a, &stack_b);
-	// print_stack(&stack_b, 'B');
+	// push(&stack_a, &stack_b, 'b');
+	master_sort(&stack_a, &stack_b);
 	ft_printf("---------------->\n");
-	print_stack(&stack_a, 'A');
-	// stackclear(&stack_a);
-	// stackclear(&stack_b);
+	// print_stack(&stack_a, 'A');
+	// ft_printf("---------------->\n");
+	// print_stack(&stack_b, 'B');
+	stackclear(&stack_a);
+	stackclear(&stack_b);
 }

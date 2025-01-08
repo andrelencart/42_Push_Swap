@@ -6,7 +6,7 @@
 /*   By: andcarva <andcarva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 17:45:34 by andcarva          #+#    #+#             */
-/*   Updated: 2024/12/27 17:46:49 by andcarva         ###   ########.fr       */
+/*   Updated: 2025/01/08 16:54:53 by andcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,11 @@
 
 void	master_sort(t_stack *stack_a, t_stack *stack_b)
 {
+	t_moves best_mov_atob;
+	t_moves best_mov_btoa;
+	int	i;
+	
+	i = 0;
 	if (stack_a->size == 2)
 	{
 		if (stack_a->head->cont > stack_a->tail->cont)
@@ -21,11 +26,28 @@ void	master_sort(t_stack *stack_a, t_stack *stack_b)
 	}
 	else if (stack_a->size == 3)
 		sort_three_a(stack_a);
+	while (i < 2)
+	{
+		// ft_printf("---------------->\n");
+		push(stack_a, stack_b, 'b');
+		// ft_printf("---------------->\n");
+		// print_stack(stack_a, 'A');
+		// ft_printf("---------------->\n");
+		// print_stack(stack_b, 'B');
+		i++;
+	}
 	while (stack_a->size > 3)
 	{
-		push(stack_a, stack_b, 'b');
-		if (stack_b->size == 3)
-			sort_three_b(stack_b);
+		ft_printf("Finding best move stack print before find best move\n");
+		print_stack(stack_a, 'A');
+		best_mov_atob = find_best_move(stack_a, stack_b);
+		// execute_best_mov(stack_a, stack_b, best_mov_atob);
+	}
+	sort_three_a(stack_a);
+	while (stack_b->size > 0)
+	{
+		best_mov_btoa = find_best_move(stack_b, stack_a);
+		execute_best_mov(stack_a, stack_b, best_mov_btoa);
 	}
 }
 
@@ -66,14 +88,45 @@ void	sort_three_b(t_stack *stack_b)
 		swap(stack_b, 'b', 1);
 }
 
-// void	sort_stack_b(t_stack *stack_a, t_stack *stack_b)
-// {
-// 	while (stack_b->size < 2 && !check_sorted(stack_a))
-// 		push(stack_a, stack_b, 'b');
-// 	while (stack_a->size > 3 && !check_sorted(stack_a))
-// 	{
-// 		if (stack_a->head->cont > ft_max(stack_b) \
-// 			|| stack_a->head->cont > ft_min(stack_b))
-// 		push(stack_a, stack_b, 'b');
-// 	}
-// }
+int	find_position_in_b(t_stack *stack_b, int num)
+{
+	int		position;
+	t_node	*current;
+
+	position = 0;
+	current = stack_b->head;
+	// printf("Finding position for %d in stack_b\n", num);
+	// print_stack(stack_b, 'B');
+	if (!stack_b->head)
+		return (position);
+	while(current)
+	{
+		// ft_printf("Checking node with cont: %d\n", current->cont);
+		// printf("Comparing %d with %d\n", num, current->cont);
+		if (num <= current->cont)
+			break ;
+		position++;
+		current = current->next;
+	}
+	// printf("Position in B for %d: %d\n", num, position);
+	return (position);
+}
+
+int	find_position_in_a(t_stack *stack_a, int num)
+{
+	int		position;
+	t_node	*current;
+
+	position = 0;
+	current = stack_a->head;
+	while (current)
+	{
+		if (current->cont == num)		// print_stack(stack_a, 'A');
+		// ft_printf("---------------->\n");
+		// print_stack(stack_b, 'B');
+			return (position);
+		position++;
+		current = current->next;
+	}
+	return (-1);
+}
