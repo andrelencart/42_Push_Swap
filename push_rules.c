@@ -6,7 +6,7 @@
 /*   By: andcarva <andcarva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 16:52:04 by andcarva          #+#    #+#             */
-/*   Updated: 2025/01/08 16:32:06 by andcarva         ###   ########.fr       */
+/*   Updated: 2025/01/08 17:19:21 by andcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	push(t_stack *stack_from, t_stack *stack_to, char id)
 {
 	t_node	*temp;
-	// print_stack(stack_from, 'A');
+	
 	if (!stack_from->head)
 		return ;
 	ft_printf("p%c\n", id);
@@ -23,7 +23,6 @@ void	push(t_stack *stack_from, t_stack *stack_to, char id)
 	stack_from->head = stack_from->head->next;
 	stackadd_front(stack_to, temp);
 	stack_from->size--;
-	// stack_to->size++;
 }
 
 void	swap(t_stack *stack, char id, int flag)

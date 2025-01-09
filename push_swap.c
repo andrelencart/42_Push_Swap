@@ -6,7 +6,7 @@
 /*   By: andcarva <andcarva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 17:22:44 by andcarva          #+#    #+#             */
-/*   Updated: 2025/01/08 16:43:15 by andcarva         ###   ########.fr       */
+/*   Updated: 2025/01/09 18:09:48 by andcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,16 +31,18 @@ int	main(int ac, char **av)
 	stack_a = make_stack(ac - 1, &av[i]);
 	if (!stack_a.head)
 		return (0);
-	// j = ft_max(&stack_a);
-	// ft_printf("%d\n", j);
-	print_stack(&stack_a, 'A');
+	// print_stack(&stack_a, 'A');
 	ft_printf("---------------->\n");
 	// push(&stack_a, &stack_b, 'b');
-	master_sort(&stack_a, &stack_b);
-	ft_printf("---------------->\n");
-	// print_stack(&stack_a, 'A');
-	// ft_printf("---------------->\n");
+	// push(&stack_a, &stack_b, 'b');
+	// push(&stack_a, &stack_b, 'b');
 	// print_stack(&stack_b, 'B');
+	master_sort(&stack_a, &stack_b);
+	// sort_three_a(&stack_a);
+	ft_printf("---------------->\n");
+	print_stack(&stack_a, 'A');
+	ft_printf("---------------->\n");
+	print_stack(&stack_b, 'B');
 	stackclear(&stack_a);
 	stackclear(&stack_b);
 }

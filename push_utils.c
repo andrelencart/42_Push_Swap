@@ -6,7 +6,7 @@
 /*   By: andcarva <andcarva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 20:06:19 by andcarva          #+#    #+#             */
-/*   Updated: 2024/12/27 16:40:35 by andcarva         ###   ########.fr       */
+/*   Updated: 2025/01/09 15:56:44 by andcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,3 +62,20 @@ int	ft_strcmp(char *s1, char *s2)
 	}
 	return (*s1 - *s2);
 }
+
+void	assign_index(t_stack *stack)
+{	
+	t_node	*current;
+	int	index;
+
+	current = stack->head;
+	index = 0;
+	while (current)
+	{
+		current->index = index;
+		index++;
+		current = current->next;
+	}
+}
+
+

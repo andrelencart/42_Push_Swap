@@ -6,7 +6,7 @@
 /*   By: andcarva <andcarva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 18:10:44 by andcarva          #+#    #+#             */
-/*   Updated: 2024/12/27 16:35:08 by andcarva         ###   ########.fr       */
+/*   Updated: 2025/01/09 17:42:54 by andcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ void	print_stack(t_stack *stack, char id)
 	ft_printf("Stack size = %d\n", stack->size);
 	while (current)
 	{
-		ft_printf("stack_nodes: %d\n", current->cont);
+		ft_printf("i: %d stack_nodes: %d\n", current->index, current->cont);
 		current = current->next;
 	}
 }

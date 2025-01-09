@@ -6,7 +6,7 @@
 /*   By: andcarva <andcarva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 17:52:31 by andcarva          #+#    #+#             */
-/*   Updated: 2025/01/07 17:55:28 by andcarva         ###   ########.fr       */
+/*   Updated: 2025/01/09 18:41:20 by andcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,10 @@
 typedef struct s_node
 {
 	int				cont;
+	int				index;
+	int				moves;
+	int				mflag;
+	struct s_node	*target;
 	struct s_node	*next;
 	struct s_node	*prev;
 }	t_node;
@@ -37,13 +41,13 @@ typedef struct s_stack
 	t_node	*tail;
 }	t_stack;
 
-typedef struct s_moves
-{
-	int	mov_toa;
-	int	mov_pnb;
-	int	min_mov;
-	int	total_mov;
-}	t_moves;
+// typedef struct s_moves
+// {
+// 	int	mov_toa;
+// 	int	mov_pnb;
+// 	int	min_mov;
+// 	int	total_mov;
+// }	t_moves;
 
 // Push_Swap
 long	ft_atol(char *str);
@@ -56,6 +60,7 @@ void	stackadd_front(t_stack *t_stack, t_node *new_node);
 void	stackclear(t_stack *stack);
 t_stack	make_stack(int ac, char **av);
 void	print_stack(t_stack *stack, char id);
+void	assign_index(t_stack *stack);
 // int		lstsize(t_node *lst);
 // void	delnode(t_node *node);
 // void	stackdelnode(t_node *node, void (*del)(void*));
@@ -82,14 +87,18 @@ void	double_rev_rot(t_stack *stack);
 void	sort_three_a(t_stack *stack);
 void	sort_three_b(t_stack *stack_b);
 void	master_sort(t_stack *stack_a, t_stack *stack_b);
-int		ft_min(t_stack *stack);
-int		ft_max(t_stack *stack);
-int		find_position_in_b(t_stack *stack_b, int num);
-int		find_position_in_a(t_stack *stack_a, int num);
-int		calc_moves(t_stack *stack, int position);
-t_moves	calc_total_moves(t_stack *stack_a, t_stack *stack_b, int num);
-t_moves	find_best_move(t_stack *stack_from, t_stack *stack_to);
-void	execute_best_mov(t_stack *stack_a, t_stack *stack_b, t_moves best_move);
+t_node	*ft_min(t_stack *stack);
+t_node	*ft_max(t_stack *stack);
+void	target_a(t_stack *stack_a, t_stack *stack_b);
+void	target_b(t_stack *stack_a, t_stack *stack_b);
+void	calc_moves(t_stack *stack_a, t_stack *stack_b);
+void	master_calc_a(t_stack *stack_a, t_stack *stack_b);
+t_node	*find_cheap(t_stack *stack);
+// int		find_position_in_b(t_stack *stack_b, int num);
+// int		find_position_in_a(t_stack *stack_a, int num);
+// t_moves	calc_total_moves(t_stack *stack_a, t_stack *stack_b, int num);
+// t_moves	find_best_move(t_stack *stack_from, t_stack *stack_to);
+// void	execute_best_mov(t_stack *stack_a, t_stack *stack_b, t_moves best_move);
 
 // Printf
 int		ft_printf(const char *str, ...);

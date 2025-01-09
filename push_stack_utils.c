@@ -6,7 +6,7 @@
 /*   By: andcarva <andcarva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 15:03:15 by andcarva          #+#    #+#             */
-/*   Updated: 2025/01/07 17:18:12 by andcarva         ###   ########.fr       */
+/*   Updated: 2025/01/09 15:44:33 by andcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,37 +61,37 @@ void	stackclear(t_stack *stack)
 	stack->size = 0;
 }
 
-int	ft_min(t_stack *stack)
+t_node	*ft_min(t_stack *stack)
 {
-	int	min_value;
+	t_node	*min_value;
 	t_node	*temp;
 	
-	if (!stack)
-		return (0);
-	min_value = stack->head->cont;
+	if (!stack->head)
+		return (NULL);
+	min_value = stack->head;
 	temp = stack->head->next;
 	while (temp)
 	{
-		if (temp->cont < min_value)
-			min_value = temp->cont;
+		if (temp < min_value)
+			min_value = temp;
 		temp = temp->next;
 	}
 		return (min_value);
 }
 
-int	ft_max(t_stack *stack)
+t_node	*ft_max(t_stack *stack)
 {
-	int	max_value;
+	t_node	*max_value;
 	t_node	*temp;
 	
-	if (!stack)
-		return (0);
-	max_value = stack->head->cont;
+	if (!stack->head)
+		return (NULL);
+	max_value = stack->head;
 	temp = stack->head->next;
 	while (temp)
 	{
-		if (temp->cont > max_value)
-			max_value = temp->cont;
+		if (temp > max_value)
+			max_value = temp;
 		temp = temp->next;
 	}
 	return (max_value);	
