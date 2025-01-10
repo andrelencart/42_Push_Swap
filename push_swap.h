@@ -6,7 +6,7 @@
 /*   By: andcarva <andcarva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 17:52:31 by andcarva          #+#    #+#             */
-/*   Updated: 2025/01/09 18:41:20 by andcarva         ###   ########.fr       */
+/*   Updated: 2025/01/10 22:56:38 by andcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ typedef struct s_node
 	int				cont;
 	int				index;
 	int				moves;
-	int				mflag;
 	struct s_node	*target;
 	struct s_node	*next;
 	struct s_node	*prev;
@@ -61,10 +60,6 @@ void	stackclear(t_stack *stack);
 t_stack	make_stack(int ac, char **av);
 void	print_stack(t_stack *stack, char id);
 void	assign_index(t_stack *stack);
-// int		lstsize(t_node *lst);
-// void	delnode(t_node *node);
-// void	stackdelnode(t_node *node, void (*del)(void*));
-// void	add_node_stack(t_stack *stack, t_node *node);
 
 // Checks
 bool	check_dupes(t_stack *stack, int num);
@@ -77,28 +72,28 @@ bool	check_sorted(t_stack *stack);
 // Rules
 void	push(t_stack *stack_from, t_stack *stack_to, char id);
 void	swap(t_stack *stack, char id, int flag);
-void	double_swap(t_stack *stack);
+void	double_swap(t_stack *stack_a, t_stack *stack_b);
 void	rotate(t_stack *stack, char id, int flag);
-void	double_rotate(t_stack *stack);
+void	double_rotate(t_stack *stack_a, t_stack *stack_b);
 void	rev_rotate(t_stack *stack, char id, int flag);
-void	double_rev_rot(t_stack *stack);
+void	double_rev_rot(t_stack *stack_a, t_stack *stack_b);
 
 // Sort
 void	sort_three_a(t_stack *stack);
-void	sort_three_b(t_stack *stack_b);
 void	master_sort(t_stack *stack_a, t_stack *stack_b);
 t_node	*ft_min(t_stack *stack);
 t_node	*ft_max(t_stack *stack);
 void	target_a(t_stack *stack_a, t_stack *stack_b);
 void	target_b(t_stack *stack_a, t_stack *stack_b);
 void	calc_moves(t_stack *stack_a, t_stack *stack_b);
-void	master_calc_a(t_stack *stack_a, t_stack *stack_b);
+void	master_calc(t_stack *stack_a, t_stack *stack_b);
+// void	master_calc_b(t_stack *stack_a, t_stack *stack_b);
 t_node	*find_cheap(t_stack *stack);
-// int		find_position_in_b(t_stack *stack_b, int num);
-// int		find_position_in_a(t_stack *stack_a, int num);
-// t_moves	calc_total_moves(t_stack *stack_a, t_stack *stack_b, int num);
-// t_moves	find_best_move(t_stack *stack_from, t_stack *stack_to);
-// void	execute_best_mov(t_stack *stack_a, t_stack *stack_b, t_moves best_move);
+void	execute_move_to_b(t_stack *stack_a, t_stack *stack_b);
+void	execute_move_to_a(t_stack *stack_a, t_stack *stack_b);
+void	excute_double_rot_to_b(t_stack *stack_a, t_stack *stack_b, t_node *min_move);
+void	excute_double_rot_to_a(t_stack *stack_a, t_stack *stack_b, t_node *min_move);
+void	last_rotate(t_stack *stack_a);
 
 // Printf
 int		ft_printf(const char *str, ...);

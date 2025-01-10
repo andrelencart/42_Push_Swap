@@ -6,7 +6,7 @@
 /*   By: andcarva <andcarva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 16:52:04 by andcarva          #+#    #+#             */
-/*   Updated: 2025/01/08 17:19:21 by andcarva         ###   ########.fr       */
+/*   Updated: 2025/01/10 20:41:55 by andcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	swap(t_stack *stack, char id, int flag)
 	if (stack->size == 0 || stack->size == 1)
 		return ;
 	if (flag)
-		ft_printf("rr%c\n", id);
+		ft_printf("s%c\n", id);
 	temp = stack->head->cont;
 	stack->head->cont = stack->head->next->cont;
 	stack->head->next->cont = temp;
@@ -42,7 +42,7 @@ void	rotate(t_stack *stack, char id, int flag)
 {
 	if (flag)
 		ft_printf("r%c\n", id);
-	if (stack->size <= 2)
+	if (stack->size < 2)
 		return ;
 	stack->head->prev = stack->tail;
 	stack->tail->next = stack->head;
@@ -56,7 +56,7 @@ void	rev_rotate(t_stack *stack, char id, int flag)
 {
 	if (flag)
 		ft_printf("rr%c\n", id);
-	if (stack->size <= 2)
+	if (stack->size < 2)
 		return ;
 	stack->tail->next = stack->head;
 	stack->head->prev = stack->tail;

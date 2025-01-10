@@ -6,7 +6,7 @@
 /*   By: andcarva <andcarva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 18:10:44 by andcarva          #+#    #+#             */
-/*   Updated: 2025/01/09 17:42:54 by andcarva         ###   ########.fr       */
+/*   Updated: 2025/01/10 18:59:31 by andcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ static bool	assemble_stack(t_stack *stack, char **split_nbr)
 {
 	t_node	*node;
 	int		i;
-	long		cont;
+	long	cont;
 	
 	i = 0;
 	cont = 0;
@@ -26,10 +26,7 @@ static bool	assemble_stack(t_stack *stack, char **split_nbr)
 		if (cont < INT_MIN || cont > INT_MAX)
 			return (false);
 		if (check_dupes(stack, (int)cont))
-		{
-			ft_printf("Error\n");
 			return (stackclear(stack), false);
-		}
 		node = lstnew_node((int)cont);
 		if (!node)
 			return (stackclear(stack), false);
@@ -80,6 +77,7 @@ void	print_stack(t_stack *stack, char id)
 		ft_printf("i: %d stack_nodes: %d\n", current->index, current->cont);
 		current = current->next;
 	}
+	// ft_printf("---------------->\n");
 }
 
 t_node	*lstnew_node(int cont)
@@ -90,6 +88,8 @@ t_node	*lstnew_node(int cont)
 	if (!new_node)
 		return (NULL);
 	new_node->cont = cont;
+	new_node->index = 0;
+	new_node->moves = 0;
 	new_node->next = NULL;
 	new_node->prev = NULL;
 	return (new_node);

@@ -6,7 +6,7 @@
 /*   By: andcarva <andcarva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 15:03:15 by andcarva          #+#    #+#             */
-/*   Updated: 2025/01/09 15:44:33 by andcarva         ###   ########.fr       */
+/*   Updated: 2025/01/10 20:59:40 by andcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ t_node	*ft_min(t_stack *stack)
 	temp = stack->head->next;
 	while (temp)
 	{
-		if (temp < min_value)
+		if (temp->cont < min_value->cont)
 			min_value = temp;
 		temp = temp->next;
 	}
