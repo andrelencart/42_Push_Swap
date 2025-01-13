@@ -6,7 +6,7 @@
 /*   By: andcarva <andcarva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 13:21:57 by andcarva          #+#    #+#             */
-/*   Updated: 2024/12/20 16:08:05 by andcarva         ###   ########.fr       */
+/*   Updated: 2025/01/13 15:19:43 by andcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ bool	check_dupes(t_stack *stack, int num)
 
 bool	check_sorted(t_stack *stack)
 {
-	int	cont;
+	int		cont;
 	t_node	*temp;
 
 	if (!stack)
@@ -74,10 +74,9 @@ bool	check_sorted(t_stack *stack)
 	{
 		if (cont < temp->cont)
 			cont = temp->cont;
-		else 
+		else
 			return (false);
 		temp = temp->next;
-		
 	}
 	return (true);
 }

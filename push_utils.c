@@ -6,7 +6,7 @@
 /*   By: andcarva <andcarva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 20:06:19 by andcarva          #+#    #+#             */
-/*   Updated: 2025/01/09 15:56:44 by andcarva         ###   ########.fr       */
+/*   Updated: 2025/01/13 15:18:14 by andcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ long	ft_atol(char *str)
 	long	sign;
 	long	result;
 	long	max;
-	
+
 	sign = 1;
 	result = 0;
 	max = (long)INT_MAX + 1;
@@ -64,9 +64,9 @@ int	ft_strcmp(char *s1, char *s2)
 }
 
 void	assign_index(t_stack *stack)
-{	
+{
 	t_node	*current;
-	int	index;
+	int		index;
 
 	current = stack->head;
 	index = 0;
@@ -77,5 +77,3 @@ void	assign_index(t_stack *stack)
 		current = current->next;
 	}
 }
-
-

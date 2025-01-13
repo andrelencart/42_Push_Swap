@@ -6,7 +6,7 @@
 /*   By: andcarva <andcarva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 18:10:44 by andcarva          #+#    #+#             */
-/*   Updated: 2025/01/10 18:59:31 by andcarva         ###   ########.fr       */
+/*   Updated: 2025/01/13 15:17:20 by andcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static bool	assemble_stack(t_stack *stack, char **split_nbr)
 	t_node	*node;
 	int		i;
 	long	cont;
-	
+
 	i = 0;
 	cont = 0;
 	while (split_nbr[i])
@@ -77,7 +77,6 @@ void	print_stack(t_stack *stack, char id)
 		ft_printf("i: %d stack_nodes: %d\n", current->index, current->cont);
 		current = current->next;
 	}
-	// ft_printf("---------------->\n");
 }
 
 t_node	*lstnew_node(int cont)

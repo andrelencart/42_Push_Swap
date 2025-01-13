@@ -6,7 +6,7 @@
 /*   By: andcarva <andcarva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 16:52:04 by andcarva          #+#    #+#             */
-/*   Updated: 2025/01/10 20:41:55 by andcarva         ###   ########.fr       */
+/*   Updated: 2025/01/13 15:18:21 by andcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	push(t_stack *stack_from, t_stack *stack_to, char id)
 {
 	t_node	*temp;
-	
+
 	if (!stack_from->head)
 		return ;
 	ft_printf("p%c\n", id);

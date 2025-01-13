@@ -6,7 +6,7 @@
 /*   By: andcarva <andcarva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 17:52:31 by andcarva          #+#    #+#             */
-/*   Updated: 2025/01/10 22:56:38 by andcarva         ###   ########.fr       */
+/*   Updated: 2025/01/13 15:15:18 by andcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,14 +39,6 @@ typedef struct s_stack
 	t_node	*head;
 	t_node	*tail;
 }	t_stack;
-
-// typedef struct s_moves
-// {
-// 	int	mov_toa;
-// 	int	mov_pnb;
-// 	int	min_mov;
-// 	int	total_mov;
-// }	t_moves;
 
 // Push_Swap
 long	ft_atol(char *str);
@@ -87,12 +79,10 @@ void	target_a(t_stack *stack_a, t_stack *stack_b);
 void	target_b(t_stack *stack_a, t_stack *stack_b);
 void	calc_moves(t_stack *stack_a, t_stack *stack_b);
 void	master_calc(t_stack *stack_a, t_stack *stack_b);
-// void	master_calc_b(t_stack *stack_a, t_stack *stack_b);
 t_node	*find_cheap(t_stack *stack);
 void	execute_move_to_b(t_stack *stack_a, t_stack *stack_b);
 void	execute_move_to_a(t_stack *stack_a, t_stack *stack_b);
-void	excute_double_rot_to_b(t_stack *stack_a, t_stack *stack_b, t_node *min_move);
-void	excute_double_rot_to_a(t_stack *stack_a, t_stack *stack_b, t_node *min_move);
+bool	excute_double(t_stack *stack_a, t_stack *stack_b, t_node *min_move);
 void	last_rotate(t_stack *stack_a);
 
 // Printf

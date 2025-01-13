@@ -6,7 +6,7 @@
 /*   By: andcarva <andcarva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 17:22:44 by andcarva          #+#    #+#             */
-/*   Updated: 2025/01/10 22:35:44 by andcarva         ###   ########.fr       */
+/*   Updated: 2025/01/13 15:29:08 by andcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ int	main(int ac, char **av)
 	static t_stack	stack_a;
 	static t_stack	stack_b;
 	int				i;
-	// int j = 0;
 
 	i = 1;
 	if (ac <= 1)
@@ -31,9 +30,8 @@ int	main(int ac, char **av)
 	stack_a = make_stack(ac - 1, &av[i]);
 	if (!stack_a.head)
 		return (0);
-	master_sort(&stack_a, &stack_b);
-	ft_printf("---------------->\n");
-	print_stack(&stack_a, 'A');
+	if (!check_sorted(&stack_a))
+		master_sort(&stack_a, &stack_b);
 	stackclear(&stack_a);
 	stackclear(&stack_b);
 }
